@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Sea Level Dashboard</title>
+<title>Sea Level Story</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -13,30 +13,40 @@
 
 <body>
 
-<header class="hero">
-  <h1>Sea Level Anomalies</h1>
-  <p>Pacific Islands Rising Seas (1993–2024)</p>
-</header>
+<section class="hero">
+  <h1>Rising Seas Across the Pacific</h1>
+  <p>Sea Level Anomalies 1993–2024</p>
 
-<section class="section">
+  <div class="stats">
+    <div><h2>+10 cm</h2><p>Sea level rise</p></div>
+    <div><h2>31 yrs</h2><p>Observation</p></div>
+    <div><h2>20+</h2><p>Island nations</p></div>
+  </div>
+</section>
+
+<section class="section reveal">
+  <h2>Latar Belakang</h2>
+  <p>
+    Negara kepulauan Pasifik mengalami tekanan akibat kenaikan permukaan laut
+    yang berlangsung selama lebih dari tiga dekade.
+  </p>
+</section>
+
+<section class="section reveal">
   <h2>Interactive Map</h2>
   <div id="map"></div>
 </section>
 
-<section class="section">
-  <h2>Global Trend</h2>
+<section class="section reveal">
+  <h2>Sea Level Trend</h2>
   <canvas id="trendChart"></canvas>
 </section>
 
-<section class="section">
-  <h2>Country Comparison</h2>
-  <select id="countrySelect"></select>
-  <canvas id="countryChart"></canvas>
-</section>
-
-<section class="section">
-  <h2>Ranking</h2>
-  <div id="ranking"></div>
+<section class="section reveal">
+  <h2>Key Insight</h2>
+  <div class="box">
+    Tren kenaikan muka laut bersifat konsisten dan meningkat di hampir semua wilayah Pasifik.
+  </div>
 </section>
 
 <script src="app.js"></script>
