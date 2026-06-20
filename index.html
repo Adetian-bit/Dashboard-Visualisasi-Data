@@ -2,32 +2,41 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Pacific Sea Level Dashboard</title>
+<title>Sea Level Dashboard</title>
+
 <link rel="stylesheet" href="style.css">
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 </head>
+
 <body>
-<header>
-<h1>Pacific Sea Level Anomalies</h1>
-<p>1993–2023 Climate Visualization</p>
+
+<header class="hero">
+  <h1>Sea Level Anomalies</h1>
+  <p>Pacific Islands Rising Seas (1993–2024)</p>
 </header>
 
-<section class="grid">
-<div class="card">
-<h2>Global Trend</h2>
-<canvas id="trendChart"></canvas>
-</div>
-
-<div class="card">
-<h2>Country Comparison</h2>
-<select id="countrySelect"></select>
-<canvas id="countryChart"></canvas>
-</div>
+<section class="section">
+  <h2>Interactive Map</h2>
+  <div id="map"></div>
 </section>
 
-<section class="insight">
-<h2>Insight</h2>
-<div id="insightBox"></div>
+<section class="section">
+  <h2>Global Trend</h2>
+  <canvas id="trendChart"></canvas>
+</section>
+
+<section class="section">
+  <h2>Country Comparison</h2>
+  <select id="countrySelect"></select>
+  <canvas id="countryChart"></canvas>
+</section>
+
+<section class="section">
+  <h2>Ranking</h2>
+  <div id="ranking"></div>
 </section>
 
 <script src="app.js"></script>
