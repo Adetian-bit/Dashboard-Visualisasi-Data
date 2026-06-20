@@ -1,55 +1,55 @@
-body{
-margin:0;
-font-family:Arial;
-background:#050d18;
-color:white;
+let data = [
+{year:1993,value:-0.02},
+{year:1998,value:0.01},
+{year:2003,value:0.03},
+{year:2008,value:0.05},
+{year:2013,value:0.07},
+{year:2018,value:0.09},
+{year:2024,value:0.12}
+];
+
+function init(){
+trend();
+map();
+scrollAnim();
 }
 
-.hero{
-height:90vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-background:linear-gradient(#061a2e,#050d18);
+function trend(){
+new Chart(document.getElementById("trendChart"),{
+type:"line",
+data:{
+labels:data.map(d=>d.year),
+datasets:[{
+label:"Sea Level Anomaly",
+data:data.map(d=>d.value),
+borderColor:"#4fc3f7"
+}]
+}
+});
 }
 
-.stats{
-display:flex;
-gap:40px;
-margin-top:20px;
+function map(){
+let m = L.map('map').setView([-10,160],4);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(m);
+
+L.marker([-8.5,179]).addTo(m).bindPopup("Tuvalu");
+L.marker([-17.7,168]).addTo(m).bindPopup("Vanuatu");
+L.marker([-1.4,173]).addTo(m).bindPopup("Kiribati");
 }
 
-.section{
-padding:80px 15%;
-opacity:0;
-transform:translateY(40px);
-transition:1s;
+function scrollAnim(){
+const sections=document.querySelectorAll(".reveal");
+
+const obs=new IntersectionObserver(entries=>{
+entries.forEach(e=>{
+if(e.isIntersecting){
+e.target.classList.add("show");
+}
+});
+});
+
+sections.forEach(s=>obs.observe(s));
 }
 
-.section.show{
-opacity:1;
-transform:translateY(0);
-}
-
-h2{
-color:#4fc3f7;
-}
-
-#map{
-height:400px;
-border-radius:12px;
-}
-
-canvas{
-background:#0e2238;
-padding:15px;
-border-radius:12px;
-}
-
-.box{
-background:#0e2238;
-padding:20px;
-border-radius:10px;
-}
+init();
