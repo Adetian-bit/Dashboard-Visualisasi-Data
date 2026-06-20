@@ -1,34 +1,40 @@
 body{
 margin:0;
 font-family:Arial;
-background:#0b1320;
+background:#06121f;
 color:white;
 }
 
-header{
+.hero{
+height:60vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+background:#0a1c2d;
 text-align:center;
-padding:20px;
-background:#111b2e;
 }
 
-.grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:20px;
-padding:20px;
+.section{
+padding:50px 10%;
 }
 
-.card{
-background:#162235;
-padding:20px;
-border-radius:12px;
+h2{
+color:#4fc3f7;
 }
 
-select{padding:8px;margin-bottom:10px;}
+#map{
+height:400px;
+border-radius:10px;
+}
 
-.insight{
-margin:20px;
-padding:20px;
-background:#1b2a44;
-border-radius:12px;
+canvas{
+background:#0e2238;
+padding:10px;
+border-radius:10px;
+}
+
+select{
+padding:8px;
+margin-bottom:10px;
 }
