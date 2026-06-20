@@ -1,22 +1,36 @@
 body{
 margin:0;
 font-family:Arial;
-background:#06121f;
+background:#050d18;
 color:white;
 }
 
 .hero{
-height:60vh;
+height:90vh;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-background:#0a1c2d;
 text-align:center;
+background:linear-gradient(#061a2e,#050d18);
+}
+
+.stats{
+display:flex;
+gap:40px;
+margin-top:20px;
 }
 
 .section{
-padding:50px 10%;
+padding:80px 15%;
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+}
+
+.section.show{
+opacity:1;
+transform:translateY(0);
 }
 
 h2{
@@ -25,16 +39,17 @@ color:#4fc3f7;
 
 #map{
 height:400px;
-border-radius:10px;
+border-radius:12px;
 }
 
 canvas{
 background:#0e2238;
-padding:10px;
-border-radius:10px;
+padding:15px;
+border-radius:12px;
 }
 
-select{
-padding:8px;
-margin-bottom:10px;
+.box{
+background:#0e2238;
+padding:20px;
+border-radius:10px;
 }
