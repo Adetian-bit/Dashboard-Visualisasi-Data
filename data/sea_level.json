@@ -1,1 +1,8 @@
-[{"country": "Tuvalu", "year": 1993, "value": -0.02}, {"country": "Tuvalu", "year": 1994, "value": -0.01}, {"country": "Fiji", "year": 1993, "value": -0.01}, {"country": "Fiji", "year": 1994, "value": 0.0}]
+[
+{"country":"Tuvalu","year":1993,"value":-0.02},
+{"country":"Tuvalu","year":1994,"value":0.01},
+{"country":"Fiji","year":1993,"value":0.00},
+{"country":"Fiji","year":1994,"value":0.02},
+{"country":"Kiribati","year":1993,"value":0.01},
+{"country":"Kiribati","year":1994,"value":0.03}
+]
