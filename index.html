@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Waterline — Pacific Sea Level Rise, 1993–2023</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brand">
+      <svg width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="none" stroke="#2fb8a6" stroke-width="1.2"/><circle cx="10" cy="10" r="3.2" fill="#7ffbe3"/></svg>
+      <b>WATERLINE</b><span>· pacific sea level rise</span>
+    </div>
+    <nav class="links">
+      <a href="#map">Map</a>
+      <a href="#context">Context</a>
+      <a href="#trend">Trend</a>
+      <a href="#compare">Compare</a>
+      <a href="#rank">Rank</a>
+      <a href="#outlook">Outlook</a>
+      <a href="#findings">Findings</a>
+    </nav>
+    <div class="nav-readout"><span class="nav-dot"></span>YEAR <b id="nav-year">2023</b></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg"><div class="swell"></div></div>
+  <div class="wrap hero-inner">
+    <div>
+      <div class="eyebrow">Climate Data · Pacific Basin · 1993–2023</div>
+      <h1>The sea is rising quietly. <em>Atoll nations are running out of room to retreat.</em></h1>
+      <p class="lede">Over 31 years, satellite altimetry has recorded sea level anomalies across 21 Pacific countries and territories. The numbers are small on paper, measured in centimeters — but they climb at every single point measured, with not one in reverse.</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><b>31</b><span>years of satellite record, 1993–2023</span></div>
+        <div class="hero-stat"><b>21</b><span>Pacific countries &amp; territories monitored</span></div>
+        <div class="hero-stat"><b>0</b><span>showing a declining trend</span></div>
+      </div>
+      <div class="scrolldown">
+        <svg width="12" height="18" viewBox="0 0 12 18"><path d="M6 0v16M1 11l5 5 5-5" stroke="#5c7a86" stroke-width="1.4" fill="none"/></svg>
+        SCROLL TO DIVE IN
+      </div>
+    </div>
+    <div class="hero-card">
+      <span class="tag">Pacific basin average · 2023</span>
+      <div class="big" id="hero-big">+10.5<sup>cm</sup></div>
+      <p class="sub">Average sea level rise across all Pacific measurement points, relative to the 1993 baseline. Equivalent to a mean rate of roughly <b class="mono" style="color:var(--tide-bright)">4.3&nbsp;mm/year</b>.</p>
+      <div class="spark" id="hero-spark"></div>
+    </div>
+  </div>
+</section>
+
+<div class="stat-band">
+  <div class="wrap">
+    <div class="stat-grid">
+      <div class="stat-cell">
+        <h3>Not a projection — a record</h3>
+        <p>The figures on this page aren't a model of the future. They are annual anomalies that have already happened, recorded since 1993 and drawn from official Pacific Community (SPC) indicators for the region.</p>
+      </div>
+      <div class="stat-cell">
+        <h3>Centimeters, not abstractions</h3>
+        <p>Many atolls across Kiribati, Tuvalu, and the Marshall Islands sit only about one to two meters above sea level on average. At that elevation, ten centimeters is not a small number.</p>
+      </div>
+      <div class="stat-cell">
+        <h3>Uneven, but never reversed</h3>
+        <p>Currents, winds, and climate oscillations like El Niño–La Niña make the pace of rise differ from island to island. But across all 21 monitored territories, the long-term direction is the same: up.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="context-strip" id="context">
+  <div class="wrap context-grid">
+    <div class="context-copy">
+      <span class="index-no">01 / Context</span>
+      <h2>Faster than the planet's average.</h2>
+      <p>Global sea levels have risen at roughly 3.3&nbsp;mm per year on average since the start of the satellite altimetry era in the early 1990s — itself already a historically fast rate compared to the 20th century.</p>
+      <p>This Pacific basin is rising faster still. The 31-year trend in this dataset works out to about <b class="mono" style="color:var(--tide-bright)">4.3&nbsp;mm/year</b> — roughly a third again above the global mean. The bars to the right put both rates on the same scale.</p>
+    </div>
+    <div class="context-chart-card">
+      <div class="context-bars" id="context-bars"><!-- filled by JS --></div>
+      <div class="context-foot">Global figure is a widely cited satellite-era average (NOAA / IPCC AR6 order of magnitude), shown for scale — not a precise reconciliation of differing source methodologies. Pacific figure is computed directly from this dataset's basin mean via linear regression.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="map">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="index-no">02 / Map</span>
+        <h2>One ocean basin, an uneven rise.</h2>
+      </div>
+      <p class="lede">Drag the year marker below the map to watch sea level anomalies shift across every country and territory, from the 1993 baseline to the latest 2023 record. Click a point to read its data.</p>
+    </div>
+
+    <div class="map-grid">
+      <div class="map-card">
+        <div class="map-stage">
+          <div class="map-legend">
+            <div class="row"><span class="sw" style="background:var(--mist-dim)"></span>below baseline</div>
+            <div class="row"><span class="sw" style="background:var(--tide)"></span>moderate rise</div>
+            <div class="row"><span class="sw" style="background:var(--mark)"></span>highest rise</div>
+          </div>
+          <div class="map-region-toggle" id="region-toggle">
+            <div class="chip active" data-region="all">All</div>
+            <div class="chip" data-region="Micronesia">Micronesia</div>
+            <div class="chip" data-region="Melanesia">Melanesia</div>
+            <div class="chip" data-region="Polynesia">Polynesia</div>
+          </div>
+          <svg id="map-svg" viewBox="0 0 1000 600"></svg>
+        </div>
+        <div class="scrubber">
+          <div class="scrub-top" style="display:flex;align-items:center;gap:16px;">
+            <button class="play-btn" id="play-btn" aria-label="Play year animation">
+              <svg id="play-icon" width="14" height="14" viewBox="0 0 14 14"><path d="M2 1l11 6-11 6V1z" fill="currentColor"/></svg>
+            </button>
+            <div class="scrub-readout">
+              <span class="lbl">Selected year</span>
+              <span class="yr" id="scrub-year">2023</span><span class="val mono" id="scrub-val">basin +10.5 cm</span>
+            </div>
+          </div>
+          <div class="draftmark-wrap">
+            <input type="range" class="yr-slider" id="yr-slider" min="0" max="30" step="1" value="30">
+            <div class="draftmark-ticks">
+              <span>1993</span><span>2003</span><span>2013</span><span>2023</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="side-panel" id="side-panel">
+        <!-- filled by JS -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="trend">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="index-no">03 / Trend</span>
+        <h2>A line that isn't flat anymore.</h2>
+      </div>
+      <p class="lede">The basin-wide annual average fluctuates year to year, but its five-year trend has moved in one direction since the mid-2000s. Shaded bands mark strong El Niño and La Niña episodes — the natural climate swings that help explain the year-to-year noise.</p>
+    </div>
+    <div class="chart-card">
+      <div id="trend-chart-mount"><svg id="trend-svg" viewBox="0 0 1080 420"></svg></div>
+      <div class="chart-legend">
+        <div class="item"><span class="sw" style="background:var(--mist-dim)"></span>annual anomaly (raw)</div>
+        <div class="item"><span class="sw" style="background:var(--tide-bright)"></span>smoothed trend (5-yr average)</div>
+        <div class="item"><span class="sw dash"></span>1993 baseline</div>
+        <div class="item"><span class="sw dot" style="background:var(--mark)"></span>strong El Niño / La Niña window</div>
+      </div>
+    </div>
+    <div class="enso-callout">
+      <span class="dotmark"></span>
+      <p><b>Reading the bumps:</b> the sharp dip in 1997–98 and the swing around 2015–16 line up with two of the strongest El Niño events in the satellite record, while 2010–11 coincides with a strong La Niña. These oscillations shift water around the Pacific from year to year — but they sit on top of the rising trend, not in place of it.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="compare">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="index-no">04 / Compare</span>
+        <h2>Same ocean, different trajectories.</h2>
+      </div>
+      <p class="lede">Choose up to five countries or territories to compare their sea level trajectories side by side.</p>
+    </div>
+    <div class="chart-card">
+      <div class="compare-controls" id="compare-chips"></div>
+      <p class="compare-hint">Selected: <span id="compare-count">4</span> / 5 maximum</p>
+      <svg id="compare-svg" viewBox="0 0 1080 420"></svg>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="rank">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="index-no">05 / Rank</span>
+        <h2>Who's recording the sharpest rise.</h2>
+      </div>
+      <p class="lede">Sort all 21 countries and territories by total rise since 1993, or by their average annual rate.</p>
+    </div>
+    <div class="rank-toggle">
+      <button class="active" data-metric="riseCm">Rise since 1993 (cm)</button>
+      <button data-metric="trendMmYr">Rate of rise (mm/yr)</button>
+    </div>
+    <div class="rank-list" id="rank-list"></div>
+    <div class="rank-legend">
+      <div class="item"><span class="dot" style="background:var(--micro)"></span>Micronesia</div>
+      <div class="item"><span class="dot" style="background:var(--mela)"></span>Melanesia</div>
+      <div class="item"><span class="dot" style="background:var(--poly)"></span>Polynesia</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="outlook">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="index-no">06 / Outlook</span>
+        <h2>If the rate holds, what comes next.</h2>
+      </div>
+      <p class="lede">This is a simple extrapolation of the basin's own observed 1993–2023 rate — not a climate model. It assumes the linear trend already in the data continues unchanged, which is unlikely to hold exactly, but it puts the historical pace into a forward-looking frame.</p>
+    </div>
+    <div class="projection-grid">
+      <div class="chart-card">
+        <div id="projection-chart-mount"><svg id="projection-svg" viewBox="0 0 1080 380"></svg></div>
+        <div class="chart-legend">
+          <div class="item"><span class="sw" style="background:var(--tide-bright)"></span>observed basin mean, 1993–2023</div>
+          <div class="item"><span class="sw dash" style="color:var(--mark)"></span>linear extrapolation</div>
+        </div>
+      </div>
+      <div>
+        <div class="projection-cards" id="projection-cards"><!-- filled by JS --></div>
+        <div class="projection-note">Method: ordinary least-squares regression fit to the 31-year basin mean (1993–2023), extended forward at a constant rate. Real-world sea level rise is expected to accelerate rather than stay linear as ice-sheet melt contributes more, so these figures are likely a conservative floor, not a ceiling.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="findings">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="index-no">07 / Findings</span>
+        <h2>What this data shows.</h2>
+      </div>
+    </div>
+    <div class="findings-grid">
+      <div class="finding">
+        <span class="num">FINDING 01</span>
+        <h3>Not one has gone down.</h3>
+        <p>Of the 21 Pacific countries and territories monitored since 1993, every one recorded a net rise by 2023 — ranging from +8&nbsp;cm to +18&nbsp;cm. None sits below its own baseline.</p>
+      </div>
+      <div class="finding">
+        <span class="num">FINDING 02</span>
+        <h3>Year-to-year noise hides, but doesn't erase, the long-term direction.</h3>
+        <p>The basin average moved from roughly 0&nbsp;cm in 1993 to +10.5&nbsp;cm in 2023, at a pace of about 4.3&nbsp;mm/year — faster than the global ocean average of roughly 3.3&nbsp;mm/year. Annual spikes and dips still appear, often tracking El Niño–La Niña cycles, but the five-year trend has climbed consistently since the mid-2000s.</p>
+      </div>
+      <div class="finding">
+        <span class="num">FINDING 03</span>
+        <h3>The fastest pace isn't always where the spotlight is.</h3>
+        <p>Palau, Micronesia (FSM), Guam, Papua New Guinea, and the Solomon Islands all recorded rises of ≥14&nbsp;cm since 1993 — matching or exceeding Tuvalu and Kiribati, the islands most often cited as symbols of this crisis.</p>
+      </div>
+    </div>
+
+    <div class="method-note">
+      <span class="index-no">Data quality note</span>
+      <h4>Why some early years read as exactly zero</h4>
+      <p>SPC's source values are rounded to the nearest 0.1&nbsp;m before publication — a coarse resolution relative to the true signal. Several countries show a string of "0" anomalies through the 1990s; this likely reflects that rounding floor rather than the sea genuinely standing still. Treat single-year, single-country readings as indicative rather than precise, and lean on the multi-year smoothed trend and the basin-wide average for the more reliable signal.</p>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <blockquote>"The Pacific isn't rising at the same speed everywhere — <em>but not one point in this record shows the water moving back.</em>"</blockquote>
+    <div class="cap">Waterline · Pacific Climate Data Visualization</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div class="footer-col">
+      <b>Data source</b>
+      Pacific Community (SPC), Pacific Data Hub — Climate Change Indicators: Sea Level Anomalies. Source unit: meters, rounded to 0.1&nbsp;m by the source; shown here in centimeters. <a href="https://pacificdata.org" target="_blank" rel="noopener">pacificdata.org</a>
+    </div>
+    <div class="footer-col">
+      <b>Methodology</b>
+      Each yearly value is the anomaly against the 1993 baseline for that country or territory. Smoothed trend = 5-year moving average. Rise &amp; rate rankings are computed from the average of the first five years vs. the last five years, and from simple linear regression. The 2030/2040/2050 outlook extends that same regression forward at a constant rate.
+    </div>
+    <div class="footer-col">
+      <b>About this page</b>
+      Built for climate data exploration and storytelling. Source data last updated May 26, 2026.
+    </div>
+  </div>
+</footer>
+
+<div class="tip" id="tip"></div>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
