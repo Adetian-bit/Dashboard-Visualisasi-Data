@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pacific Sea Level Dashboard</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<header>
+<h1>Pacific Sea Level Anomalies</h1>
+<p>1993–2023 Climate Visualization</p>
+</header>
+
+<section class="grid">
+<div class="card">
+<h2>Global Trend</h2>
+<canvas id="trendChart"></canvas>
+</div>
+
+<div class="card">
+<h2>Country Comparison</h2>
+<select id="countrySelect"></select>
+<canvas id="countryChart"></canvas>
+</div>
+</section>
+
+<section class="insight">
+<h2>Insight</h2>
+<div id="insightBox"></div>
+</section>
+
+<script src="app.js"></script>
+</body>
+</html>
