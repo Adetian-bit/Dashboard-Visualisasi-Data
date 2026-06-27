@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Born Below the Future Sea — A Climate Change Narrative</title>
+  <meta name="description" content="An immersive cinematic storytelling experience about sea level rise in the Pacific, focusing on Fiji and surrounding island nations." />
+  <meta name="keywords" content="climate change, sea level rise, Pacific islands, Fiji, Tuvalu, ocean, interactive documentary" />
+  <meta property="og:title" content="Born Below the Future Sea" />
+  <meta property="og:description" content="The ocean rises a few millimeters every year. Until those millimeters become a lifetime." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Underwater Particle Canvas -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- Progress Bar -->
+  <div id="progress-bar" class="progress-bar"></div>
+
+  <!-- Navigation -->
+  <nav id="main-nav" class="main-nav">
+    <div class="nav-brand">BBFS</div>
+    <div class="nav-sections">
+      <button class="nav-dot active" data-section="0" title="Hero"></button>
+      <button class="nav-dot" data-section="1" title="Litia"></button>
+      <button class="nav-dot" data-section="2" title="Baseline"></button>
+      <button class="nav-dot" data-section="3" title="Trend"></button>
+      <button class="nav-dot" data-section="4" title="Regional"></button>
+      <button class="nav-dot" data-section="5" title="Generations"></button>
+      <button class="nav-dot" data-section="6" title="Map"></button>
+      <button class="nav-dot" data-section="7" title="Decision"></button>
+      <button class="nav-dot" data-section="8" title="Conclusion"></button>
+    </div>
+    <button id="sound-toggle" class="sound-btn" aria-label="Toggle ambient sound">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+        <line x1="23" y1="9" x2="17" y2="15"/>
+        <line x1="17" y1="9" x2="23" y2="15"/>
+      </svg>
+    </button>
+  </nav>
+
+  <!-- ============================================ -->
+  <!-- SECTION 1: HERO -->
+  <!-- ============================================ -->
+  <section id="section-hero" class="scroll-section hero-section">
+    <div class="hero-bg-overlay"></div>
+    <div class="hero-img-bg" style="background-image: url('hero_background.jpg')"></div>
+    <div class="hero-content">
+      <div class="hero-badge">INTERACTIVE CLIMATE NARRATIVE</div>
+      <h1 class="hero-title">
+        <span class="title-line" data-animate="fade-up" data-delay="200">BORN BELOW THE</span>
+        <span class="title-line title-gradient" data-animate="fade-up" data-delay="500">FUTURE SEA</span>
+      </h1>
+      <div class="hero-quotes" data-animate="fade-up" data-delay="900">
+        <p class="hero-quote">"The ocean rises a few millimeters every year."</p>
+        <p class="hero-quote accent">"Until those millimeters become a lifetime."</p>
+      </div>
+    </div>
+    <div class="scroll-cta" data-animate="fade-up" data-delay="1400">
+      <span class="scroll-label">SCROLL TO BEGIN</span>
+      <div class="scroll-mouse">
+        <div class="scroll-dot"></div>
+      </div>
+    </div>
+    <div class="hero-wave-bottom">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path d="M0,80 C240,120 480,40 720,80 C960,120 1200,40 1440,80 L1440,120 L0,120 Z" fill="rgba(3,13,20,0.7)"/>
+        <path d="M0,95 C360,60 720,110 1080,75 C1260,60 1380,90 1440,85 L1440,120 L0,120 Z" fill="rgba(3,13,20,0.9)"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECTION 2: MEET LITIA -->
+  <!-- ============================================ -->
+  <section id="section-litia" class="scroll-section litia-section">
+    <div class="section-inner">
+      <div class="section-grid two-col">
+        <div class="col-text" data-animate="fade-right">
+          <div class="section-tag">
+            <span class="tag-number">01</span>
+            <span class="tag-divider">/</span>
+            <span class="tag-label">HUMAN CONTEXT</span>
+          </div>
+          <h2 class="section-title">Meet <span class="text-glow">Litia</span></h2>
+          <p class="section-body">In 2024, Litia was born in a coastal village in Fiji. She inherits a shoreline in flux, though she is still too young to understand thermal expansion, melting ice sheets, or rising greenhouse gas emissions.</p>
+          <p class="section-body">To her, the ocean is a constant, reassuring presence. It sustains her family, shapes communal stories, and lulls her to sleep.</p>
+          <blockquote class="section-quote">
+            Yet, the sea around her home has already risen significantly since her parents took their first steps on these shores. By the time she reaches adulthood, this change will have accelerated.
+          </blockquote>
+        </div>
+        <div class="col-visual" data-animate="fade-left">
+          <div class="character-card">
+            <div class="card-glow-border"></div>
+            <div class="card-image-wrapper">
+              <img src="litia_portrait.jpg" alt="Litia, a young Fijian girl standing on the shores of her village" class="card-image" />
+              <div class="card-image-overlay"></div>
+            </div>
+            <div class="card-info">
+              <span class="card-name">LITIA</span>
+              <span class="card-detail">Fiji Islands, 2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECTION 3: SCIENTIFIC BASELINE -->
+  <!-- ============================================ -->
+  <section id="section-baseline" class="scroll-section baseline-section">
+    <div class="section-inner">
+      <div class="section-grid two-col reverse">
+        <div class="col-visual" data-animate="fade-right">
+          <div class="baseline-panel glass-panel">
+            <div class="panel-header">
+              <span class="panel-label">SATELLITE ALTIMETRY</span>
+              <div class="panel-status-dot pulse"></div>
+            </div>
+            <div class="panel-center">
+              <span class="panel-year" id="baseline-year">1993</span>
+              <span class="panel-sublabel">THE GLOBAL BASELINE YEAR</span>
+            </div>
+            <div class="panel-footer">
+              <div class="panel-metric">
+                <span class="metric-label">SEA LEVEL DEVIATION</span>
+                <span class="metric-value">0.0 <small>mm</small></span>
+              </div>
+              <div class="panel-divider"></div>
+              <p class="panel-note">Standard reference point zero for all modern sea-level rise observations.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-text" data-animate="fade-left">
+          <div class="section-tag">
+            <span class="tag-number">02</span>
+            <span class="tag-divider">/</span>
+            <span class="tag-label">THE BASELINE</span>
+          </div>
+          <h2 class="section-title">The <span class="text-glow">1993</span> Baseline</h2>
+          <p class="section-body">In 1993, high-precision satellite altimetry began recording global sea levels, establishing a baseline of zero deviation.</p>
+          <p class="section-body">For generations, the shorelines of Fiji, Samoa, and Tuvalu had remained relatively stable, with seasonal tides gently sculpting the shores.</p>
+          <blockquote class="section-quote">
+            But beneath the surface, a thermodynamic shift was already underway. The oceans were absorbing over 90% of the excess heat trapped by greenhouse gas emissions, triggering a steady, irreversible thermal expansion.
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECTION 4: SEA LEVEL TREND 1993-2024 -->
+  <!-- ============================================ -->
+  <section id="section-trend" class="scroll-section trend-section">
+    <div class="section-inner wide">
+      <div class="section-tag center-tag">
+        <span class="tag-number">03</span>
+        <span class="tag-divider">/</span>
+        <span class="tag-label">CHRONOLOGY</span>
+      </div>
+      <h2 class="section-title center">Three Decades of <span class="text-glow">Change</span></h2>
+      <p class="section-body center max-w-700">Hover over the chart to inspect the exact millimeter rise recorded for any year across multiple Pacific island nations.</p>
+      
+      <div class="chart-container glass-panel" data-animate="fade-up">
+        <div class="chart-header">
+          <div>
+            <span class="chart-label">PACIFIC REGIONAL SEA LEVEL RISE</span>
+            <span class="chart-sublabel">1993 — 2024 (Satellite Altimetry)</span>
+          </div>
+          <div class="chart-year-display">
+            <span class="year-label">YEAR</span>
+            <span class="year-value" id="trend-year">1993</span>
+          </div>
+        </div>
+        <div class="chart-area" id="trend-chart">
+          <canvas id="trend-canvas"></canvas>
+          <div class="chart-tooltip" id="trend-tooltip"></div>
+        </div>
+        <div class="chart-legend" id="trend-legend"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECTION 5: REGIONAL IMPACT VARIATION -->
+  <!-- ============================================ -->
+  <section id="section-regional" class="scroll-section regional-section">
+    <div class="section-inner">
+      <div class="section-grid two-col">
+        <div class="col-text" data-animate="fade-right">
+          <div class="section-tag">
+            <span class="tag-number">04</span>
+            <span class="tag-divider">/</span>
+            <span class="tag-label">DIVERGENT TIDES</span>
+          </div>
+          <h2 class="section-title">Not All Islands <span class="text-glow">Rise Equally</span></h2>
+          <p class="section-body">The ocean does not rise evenly like water in a bathtub. Due to Earth's rotation, localized gravitational pull, prevailing currents, and wind patterns, water accumulates unevenly.</p>
+          <p class="section-body">Some Pacific archipelagos experience localized sea-level rise at <strong class="text-glow">double or triple</strong> the global average rate.</p>
+          <blockquote class="section-quote">
+            Because sea levels rise unevenly, climate adaptation cannot be a one-size-fits-all solution. Funding, coastal defenses, and migration planning must be tailored to each archipelago.
+          </blockquote>
+        </div>
+        <div class="col-visual" data-animate="fade-left">
+          <div class="bar-chart-container glass-panel">
+            <div class="bar-chart-header">
+              <div class="bar-toggle-group">
+                <button class="bar-toggle active" data-sort="fastest">Fastest Rise</button>
+                <button class="bar-toggle" data-sort="slowest">Slowest Rise</button>
+              </div>
+            </div>
+            <div class="bar-chart-area" id="regional-chart"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECTION 6: GENERATIONAL CHANGE -->
+  <!-- ============================================ -->
+  <section id="section-generations" class="scroll-section generations-section">
+    <div class="section-inner wide">
+      <div class="section-tag center-tag">
+        <span class="tag-number">05</span>
+        <span class="tag-divider">/</span>
+        <span class="tag-label">GENERATIONAL SHIFT</span>
+      </div>
+      <h2 class="section-title center">Growing Up With a <span class="text-glow">Different Ocean</span></h2>
+      <p class="section-body center max-w-700">Drag the slider to compare the Fijian shoreline at the start of the satellite record (1993) with the conditions Litia faces today (2024).</p>
+
+      <div class="comparison-container" data-animate="fade-up">
+        <div class="comparison-slider" id="comparison-slider">
+          <!-- Left: 1993 -->
+          <div class="comparison-side comparison-left">
+            <img src="coastline_comparison.jpg" alt="1993 stable Fijian coastline" class="comparison-img" />
+            <div class="comparison-overlay left-overlay">
+              <div class="comparison-info">
+                <span class="comp-year">1993 (Baseline)</span>
+                <h3 class="comp-title">Stable Shorelines</h3>
+                <p class="comp-desc">Wide beaches, healthy vegetation, clean groundwater wells.</p>
+                <div class="comp-metric">
+                  <span class="comp-metric-label">Baseline Level</span>
+                  <span class="comp-metric-value">0.0 mm</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Right: 2024 -->
+          <div class="comparison-side comparison-right" id="comparison-right">
+            <img src="coastline_comparison.jpg" alt="2024 eroding Fijian coastline" class="comparison-img" />
+            <div class="comparison-overlay right-overlay">
+              <div class="comparison-info right-info">
+                <span class="comp-year accent">2024 (Today)</span>
+                <h3 class="comp-title accent">Encroaching Tides</h3>
+                <p class="comp-desc">Rising seas erode shores, saltwater ruins crops.</p>
+                <div class="comp-metric">
+                  <span class="comp-metric-label">Sea Rise At Birth</span>
+                  <span class="comp-metric-value accent">+111.6 mm</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Divider -->
+          <div class="comparison-divider" id="comparison-divider">
+            <div class="divider-handle">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M8 5l-5 7 5 7M16 5l5 7-5 7"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECTION 7: PACIFIC FRONTLINE MAP -->
+  <!-- ============================================ -->
+  <section id="section-map" class="scroll-section map-section">
+    <div class="section-inner wide">
+      <div class="map-header-row">
+        <div class="map-header-text" data-animate="fade-right">
+          <div class="section-tag">
+            <span class="tag-number">06</span>
+            <span class="tag-divider">/</span>
+            <span class="tag-label">GEOGRAPHIC FOOTPRINT</span>
+          </div>
+          <h2 class="section-title">The Pacific <span class="text-glow">Frontline</span></h2>
+          <p class="section-body">Hover over island nodes on the map to inspect individual sea level records.</p>
+        </div>
+        <div class="map-controls glass-panel" data-animate="fade-left">
+          <span class="control-label">EMISSIONS SCENARIO</span>
+          <div class="scenario-buttons">
+            <button class="scenario-btn active" data-scenario="low">SSP1-2.6 (Low)</button>
+            <button class="scenario-btn" data-scenario="high">SSP5-8.5 (High)</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-container glass-panel" data-animate="fade-up">
+        <div class="map-bg-img" style="background-image: url('pacific_map_bg.jpg')"></div>
+        <svg id="pacific-map" viewBox="0 0 900 450" class="pacific-map-svg">
+          <!-- Grid lines -->
+          <line x1="40" y1="130" x2="860" y2="130" stroke="rgba(76,201,240,0.12)" stroke-width="0.6" stroke-dasharray="6 6"/>
+          <text x="55" y="124" fill="#4CC9F0" class="map-text-sm" opacity="0.3">Equator</text>
+          <line x1="40" y1="260" x2="860" y2="260" stroke="rgba(76,201,240,0.05)" stroke-width="0.5" stroke-dasharray="3 3"/>
+          <text x="55" y="254" fill="#4CC9F0" class="map-text-xs" opacity="0.2">10° S</text>
+          <line x1="40" y1="380" x2="860" y2="380" stroke="rgba(76,201,240,0.05)" stroke-width="0.5" stroke-dasharray="3 3"/>
+          <text x="55" y="374" fill="#4CC9F0" class="map-text-xs" opacity="0.2">20° S</text>
+          <!-- Connection lines will be drawn via JS -->
+          <!-- Island nodes will be added via JS -->
+        </svg>
+        <div class="map-tooltip" id="map-tooltip"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECTION 8: DECISION -->
+  <!-- ============================================ -->
+  <section id="section-decision" class="scroll-section decision-section">
+    <div class="decision-bg-gradient"></div>
+    <div class="section-inner">
+      <!-- Emotional quote -->
+      <div class="decision-quote-block" data-animate="fade-up">
+        <p class="decision-quote">"The ocean rises a few millimeters every year."</p>
+        <p class="decision-quote">For a child born today, that sounds small.</p>
+        <p class="decision-quote accent-large">Until those millimeters become a lifetime.</p>
+      </div>
+
+      <div class="decision-header" data-animate="fade-up">
+        <div class="section-tag center-tag">
+          <span class="tag-number">08</span>
+          <span class="tag-divider">/</span>
+          <span class="tag-label">THE DECISION</span>
+        </div>
+        <h2 class="section-title center">Litia's Dilemma: <span class="text-glow">An Unavoidable Future</span> (2050)</h2>
+        <p class="section-body center max-w-700">By 2050, when Litia turns 26, local sea levels in Fiji are projected to rise by more than 200 mm. Her coastal community faces a stark, painful decision.</p>
+      </div>
+
+      <!-- Decision Cards -->
+      <div class="decision-cards" data-animate="fade-up">
+        <button class="decision-card" id="card-relocation" data-choice="relocation">
+          <div class="dcard-image-wrap">
+            <img src="relocation_scene.jpg" alt="Climate migration from Pacific Islands" class="dcard-image" />
+            <div class="dcard-image-overlay"></div>
+          </div>
+          <div class="dcard-content">
+            <span class="dcard-option">OPTION A</span>
+            <h3 class="dcard-title">Relocation</h3>
+            <p class="dcard-desc">Displacing from Fiji to seek residency in New Zealand or Australia as climate migrants, securing physical safety.</p>
+          </div>
+          <div class="dcard-hover-detail">
+            <h4>Consequences</h4>
+            <ul>
+              <li>Physical safety secured in stable climate zones</li>
+              <li>Permanent separation from ancestral homeland</li>
+              <li>Cultural identity erosion over generations</li>
+              <li>Economic restart in unfamiliar environment</li>
+            </ul>
+          </div>
+        </button>
+
+        <button class="decision-card" id="card-adaptation" data-choice="adaptation">
+          <div class="dcard-image-wrap">
+            <img src="adaptation_scene.jpg" alt="Climate adaptation with sea walls and mangroves" class="dcard-image" />
+            <div class="dcard-image-overlay"></div>
+          </div>
+          <div class="dcard-content">
+            <span class="dcard-option">OPTION B</span>
+            <h3 class="dcard-title">Adaptation</h3>
+            <p class="dcard-desc">Remaining on ancestral land, building sea walls, planting mangrove buffers, and adapting to a volatile shoreline.</p>
+          </div>
+          <div class="dcard-hover-detail">
+            <h4>Consequences</h4>
+            <ul>
+              <li>Cultural heritage and identity preserved</li>
+              <li>Ongoing physical risk from rising seas</li>
+              <li>Requires massive international funding</li>
+              <li>Nature-based solutions may buy decades</li>
+            </ul>
+          </div>
+        </button>
+      </div>
+
+      <!-- Decision Result -->
+      <div class="decision-result" id="decision-result">
+        <div class="result-placeholder">
+          <p>Select a path above to explore the consequences of Litia's future...</p>
+        </div>
+      </div>
+
+      <!-- Impact Assessment -->
+      <div class="impact-panel glass-panel" data-animate="fade-up">
+        <span class="panel-label">FUTURE COMMUNITY IMPACT ASSESSMENT (2050)</span>
+        <div class="impact-metrics">
+          <div class="impact-metric">
+            <div class="metric-head">
+              <span>Physical Safety</span>
+              <span class="text-glow" id="safety-val">50%</span>
+            </div>
+            <div class="metric-bar"><div class="metric-fill" id="safety-bar" style="width: 50%"></div></div>
+            <span class="metric-note">Assessing safety of current villages.</span>
+          </div>
+          <div class="impact-metric">
+            <div class="metric-head">
+              <span>Cultural Heritage</span>
+              <span class="text-glow" id="heritage-val">85%</span>
+            </div>
+            <div class="metric-bar"><div class="metric-fill" id="heritage-bar" style="width: 85%"></div></div>
+            <span class="metric-note">Deep spiritual connection to the Vanua.</span>
+          </div>
+          <div class="impact-metric">
+            <div class="metric-head">
+              <span>Economic Viability</span>
+              <span class="text-glow" id="economy-val">50%</span>
+            </div>
+            <div class="metric-bar"><div class="metric-fill" id="economy-bar" style="width: 50%"></div></div>
+            <span class="metric-note">Subsistence economy linked to ocean.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECTION 9: CONCLUSION -->
+  <!-- ============================================ -->
+  <section id="section-conclusion" class="scroll-section conclusion-section">
+    <div class="conclusion-glow"></div>
+    <div class="section-inner">
+      <div class="conclusion-content" data-animate="fade-up">
+        <div class="section-tag center-tag">
+          <span class="tag-number">09</span>
+          <span class="tag-divider">/</span>
+          <span class="tag-label">THE FUTURE</span>
+        </div>
+        <h2 class="conclusion-headline">We Are Not Drowning.<br/><span class="text-glow">We Are Adapting.</span></h2>
+        <p class="conclusion-body">For indigenous Pacific Islanders, separating from their land is a form of cultural erasure. Many coastal communities choose to stay and defend their homes. They do not see themselves as passive victims of climate change, but as active guardians on the front lines of global resilience.</p>
+        <blockquote class="conclusion-final-quote">
+          "We are not drowning, we are fighting. But our resilience must not be used as an excuse for global inaction."
+        </blockquote>
+        <div class="conclusion-cta">
+          <a href="https://pacificdata.org" target="_blank" rel="noopener noreferrer" class="cta-button">
+            <span>Explore Pacific Data Hub</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="footer-logo">BBFS</span>
+          <p class="footer-tagline">Born Below the Future Sea</p>
+          <p class="footer-credit">Developed by <strong>Team Pacific Guardians</strong> — Pacific DataViz Challenge</p>
+        </div>
+        <div class="footer-source">
+          <span class="footer-source-label">Data Source</span>
+          <a href="https://pacificdata.org" target="_blank" rel="noopener noreferrer" class="footer-source-link">
+            Pacific Data Hub
+            <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2024 Pacific Guardians. Climate advocacy through data storytelling.</span>
+      </div>
+    </footer>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
